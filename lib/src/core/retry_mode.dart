@@ -1,0 +1,1 @@
+enum RetryMode { safe, fast }

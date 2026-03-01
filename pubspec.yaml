@@ -1,0 +1,82 @@
+name: shadow_man
+description: "A new Flutter project."
+publish_to: "none"
+
+version: 1.0.1+2
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_windows: ^0.2.2
+  cupertino_icons: ^1.0.8
+  shared_preferences: ^2.2.3
+  audioplayers: ^6.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+  # App icon generator (Android + Windows)
+  flutter_launcher_icons: ^0.13.1
+
+  # Native splash (Android only)
+  flutter_native_splash: ^2.4.1
+
+  # MSIX packaging for Microsoft Store
+  msix: ^3.16.13
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/icon.png
+    - assets/splash/splash.png
+    - assets/audio/scary.mp3
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon/icon.png"
+  min_sdk_android: 21
+  windows:
+    generate: true
+    image_path: "assets/icon/icon.png"
+    icon_size: 256
+
+flutter_native_splash:
+  color: "#101016"
+  image: assets/splash/splash.png
+  android: true
+  ios: false
+  web: false
+  android_gravity: center
+
+# ------------------------------------------------------------
+# MSIX (Microsoft Store) config - MUST match Partner Center
+# ------------------------------------------------------------
+msix_config:
+  display_name: Shadow man 2
+  publisher_display_name: cyph3r
+
+  # MUST match Partner Center -> Package/Identity/Name
+  identity_name: cyph3r.Shadowman2
+
+  # MUST match Partner Center -> Package/Identity/Publisher
+  publisher: CN=7456A62D-B4E5-49F3-9485-ADF80146DE6A
+
+  # MSIX requires 4-part version: major.minor.build.revision
+  # Store requires revision (last part) = 0
+  msix_version: 1.0.2.0
+
+  # Store submission mode
+  store: true
+
+  # Optional but recommended visuals
+  logo_path: assets/icon/icon.png
+  start_menu_icon_path: assets/icon/icon.png
+  tile_icon_path: assets/icon/icon.png
+  icons_background_color: "#101016"
